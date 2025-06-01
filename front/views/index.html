@@ -25,19 +25,53 @@
         background:#1c1c1c;
         color:white;
         font-family: "Inter",sans-serif;
+        margin:0;
+        padding: 0;
     }
     button {
         color:greenyellow;
         background-color: #1c1c1c;
         font-family: "Inter",'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        border-radius: 4px;
+        border-radius: 15px;
         border-style: solid;
         border-width: 1px;
         border-color: greenyellow;
         min-height: fit-content;
         min-width: fit-content;
+        height: 32px;
+        width: 120px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin-left:5px;
+        margin-right: 5px;
+    }
+    button:hover {
+        color:#1c1c1c;
+        background-color: greenyellow;
+    }
+    #joinGame {
+        color: #1c1c1c;
+        background-color: greenyellow;
+        font-weight: bold;
+    }
+    #joinGame:hover {
+        color:#1c1c1c;
+        background-color: rgb(127, 187, 36);
+    }
+    input {
+        color: whitesmoke;
+        font-family: "Inter",'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color: #1d1d1d;
+        border-radius: 15px;
+        border-color: whitesmoke;
+        min-height: fit-content;
+        min-width: fit-content;
         height: 30px;
-        width: 90px;
+        width: 275px;
+        border-width: 1px;
+    }
+    ::placeholder {
+        text-align: center;
     }
     span.accent {
         color:greenyellow;
@@ -48,10 +82,10 @@
     </head>
     <body>
         <h2 class="heading">Welcome to <span class="accent">Guava Chess!</span></h2>
-        <p><i>To create a game, input your own code. <br>To join a game, input the code your opponent gave you.</i></p>
-        <input type="text" id="codeInput">
-        <button id="createGame">Create game</button>
-        <button id="joinGame">Join game</button>
+        <p><i>To create a new game, press "New Game".<br>To join a game, input the invite code your opponent gave you.</i></p>
+        <input placeholder="Invite code goes here..." type="text" id="codeInput">
+        <button id="joinGame">Join Game</button>
+        <button id="createGame">New Game</button>
         <div style="color: red" id="errorMessage"></div>
 
         <script>
@@ -70,7 +104,7 @@
 
             var urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('error') == 'invalidCode') {
-                $('#errorMessage').text('Invalid invite code');
+                $('#errorMessage').text('The invite code was invalid or the room is full.');
             }
         </script>
     </body>

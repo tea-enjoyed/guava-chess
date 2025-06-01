@@ -16,10 +16,16 @@
         font-family: "Inter";
         src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     }
+    * {
+    margin: 0;
+    padding: 0;
+    }
     h2 {
         color:white;
         font-family: "Inter",sans-serif;
         font-size: large;
+        padding: 5px;
+        padding-top:9px;
     }
     .heading {
         color:white;
@@ -27,12 +33,27 @@
         font-size: x-large;
         text-decoration: none;
         font-weight: bold;
+        padding: 5px;
+        
+    }
+    .heading2 {
+        width: auto;
+        height: fit-content;
+        padding: 10px;
+        background-color: #101010;
     }
     html {
         background:#1c1c1c;
         color:white;
         font-family: "Inter",sans-serif;
+        margin:0;
+        padding: 0;
     }
+    .body {
+        margin:0;
+        padding: 0;
+    }
+
     button {
         color:greenyellow;
         background-color: #1c1c1c;
@@ -63,6 +84,7 @@
         margin-right: auto;
         display: flex;
         flex-direction: row;
+        padding-top:30px;
     }
 
     .navigation{
@@ -74,6 +96,9 @@
         float:right;
         padding-left: 10px;
         background-color: #101010;
+    }
+    p,.fake-paragraph {
+        padding: 5px;
     }
 </style>
     </head>
@@ -97,21 +122,26 @@
             function getCode(){
             let params = new URLSearchParams(document.location.search);
             let name = params.get("code");
-            document.write("<b>Invite code: (click to copy)</b> <br><span class='accent'><a onclick='copyID()' id='gameID'>",name,"</a></span>");
+            document.write("<p><b>Invite code: (click to copy)</b> <br><span class='accent'><a onclick='copyID()' id='gameID'>",name,"</a></span></p>");
+            return name;
         };
-        getCode();
+        roomID = getCode();
+        socket.on('redirectHome', function(data) {
+    window.location.href = '/?error=' + (data.error || 'invalidCode');
+});
+
         </script>
         <p><b>Game status:</b></p>
-        <div id="status"></div>
+        <div class="fake-paragraph" id="status"></div>
         <p><b>PGN:</b></p>
         <p id="pgn"></p>
-        </div></div>
+        </div>        
+    </div>
 
         <script>
             let playerColor = '{{color}}';
             console.log('Playing as ' + playerColor);
         </script>
         <script src="/public/js/index.js"></script>
-
     </body>
 </html>
