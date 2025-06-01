@@ -12,6 +12,7 @@
 - No chat function.
 - No ability to change pieces & board theme.
 - Can't change from dark to light theme.
+- Uses the outdated chessboardjs instead of chessboard2 (Couldn't get it to work with chessboard2, had to stick with chessboardjs)
 - Not sure about the code's reliability - Not enough testing has been done.
 
 Feel free to fork this project, just credit me pls. (I worked hard on this)
