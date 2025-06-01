@@ -26,6 +26,8 @@ To launch the server from the root folder, do `cd server;node server.js`. (On Li
 
 If you're already in the server folder, just do `node server.js`.
 
+Default port is `3037`, you can change it in the config.js file.
+
 ## Screenshots
 ![Screenshot_20250601_161944](https://github.com/user-attachments/assets/ac98e175-0396-44d5-aade-e07da801f6e4)
 ![image](https://github.com/user-attachments/assets/0ea6b9d3-71ab-4453-a810-751afafc4309)
