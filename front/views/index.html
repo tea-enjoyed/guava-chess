@@ -1,9 +1,53 @@
 <html>
     <head>
-        {{> head}}
+        <script src="/public/js/jquery-3.7.0.min.js"></script>
+<link rel="stylesheet" href="/public/css/chessboard-1.0.0.min.css" />
+<script src="/public/js/chessboard-1.0.0.min.js"></script>
+<script src="/public/js/chess-0.10.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="/socket.io/socket.io.js"></script>
+<script>let socket = io();</script>
+<link rel="stylesheet" type="text/css" href="./main.css">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    @font-face {
+        font-family: "Inter";
+        src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    }
+    h2 {
+        color:white;
+        font-family: "Inter",sans-serif;
+        font-size: x-large;
+    }
+    html {
+        background:#1c1c1c;
+        color:white;
+        font-family: "Inter",sans-serif;
+    }
+    button {
+        color:greenyellow;
+        background-color: #1c1c1c;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 2px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: greenyellow;
+        min-height: fit-content;
+        min-width: fit-content;
+        height: 30px;
+        width: 90px;
+    }
+    span.accent {
+        color:greenyellow;
+    }
+</style>
+
+
     </head>
     <body>
-        <h2>Game code</h2>
+        <h2 class="heading">Welcome to <span class="accent">Guava Chess!</span></h2>
+        <p><i>To create a game, input your own code:</i></p>
         <input type="text" id="codeInput">
         <button id="createGame">Create game</button>
         <button id="joinGame">Join game</button>
