@@ -1,3 +1,4 @@
+
 # guava-chess
  Multiplayer online chess game, based on invite links. (forked from almatrass/chess-site)
 
@@ -16,4 +17,9 @@
 - Uses the outdated chessboardjs instead of chessboard2 (Couldn't get it to work with chessboard2, had to stick with chessboardjs)
 - Not sure about the code's reliability - Not enough testing has been done.
 
+## Screenshots
+![Screenshot_20250601_161944](https://github.com/user-attachments/assets/ac98e175-0396-44d5-aade-e07da801f6e4)
+![image](https://github.com/user-attachments/assets/0ea6b9d3-71ab-4453-a810-751afafc4309)
+
+## It's open source.
 Feel free to fork this project, just credit me pls. (I worked hard on this)
