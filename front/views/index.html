@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <script src="/public/js/jquery-3.7.0.min.js"></script>
@@ -28,8 +29,8 @@
     button {
         color:greenyellow;
         background-color: #1c1c1c;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        border-radius: 2px;
+        font-family: "Inter",'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px;
         border-style: solid;
         border-width: 1px;
         border-color: greenyellow;
@@ -47,15 +48,21 @@
     </head>
     <body>
         <h2 class="heading">Welcome to <span class="accent">Guava Chess!</span></h2>
-        <p><i>To create a game, input your own code:</i></p>
+        <p><i>To create a game, input your own code. <br>To join a game, input the code your opponent gave you.</i></p>
         <input type="text" id="codeInput">
         <button id="createGame">Create game</button>
         <button id="joinGame">Join game</button>
         <div style="color: red" id="errorMessage"></div>
 
         <script>
+            function uuidv4() {
+            return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+            (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+            );
+            }
             $('#createGame').on('click', function() {
-                window.location.replace('/white?code=' + $('#codeInput').val());
+                var inviteID = uuidv4();
+                window.location.replace('/white?code=' + String(inviteID));
             });
             $('#joinGame').on('click', function() {
                 window.location.replace('/black?code=' + $('#codeInput').val());

@@ -1,14 +1,111 @@
+<!DOCTYPE html>
 <html>
     <head>
-        {{> head}}
+        <script src="/public/js/jquery-3.7.0.min.js"></script>
+<link rel="stylesheet" href="/public/css/chessboard-1.0.0.min.css" />
+<script src="/public/js/chessboard-1.0.0.min.js"></script>
+<script src="/public/js/chess-0.10.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="/socket.io/socket.io.js"></script>
+<script>let socket = io();</script>
+<link rel="stylesheet" type="text/css" href="./main.css">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    @font-face {
+        font-family: "Inter";
+        src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    }
+    h2 {
+        color:white;
+        font-family: "Inter",sans-serif;
+        font-size: large;
+    }
+    .heading {
+        color:white;
+        font-family: "Inter",sans-serif;
+        font-size: x-large;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    html {
+        background:#1c1c1c;
+        color:white;
+        font-family: "Inter",sans-serif;
+    }
+    button {
+        color:greenyellow;
+        background-color: #1c1c1c;
+        font-family: "Inter",'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: greenyellow;
+        min-height: fit-content;
+        min-width: fit-content;
+        height: 30px;
+        width: 90px;
+    }
+    span.accent {
+        color:greenyellow;
+    }
+
+    .chessBoard{
+        width: 65vh;
+        align-items:center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .container {
+        width:fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navigation{
+        float:right;
+    }
+    .info{
+        justify-content: center;
+        width: 30vw;
+        float:right;
+        padding-left: 10px;
+        background-color: #101010;
+    }
+</style>
     </head>
     <body>
-
-        <div id="myBoard" style="width: 700px"></div>
-        <label>Status:</label>
+        <div class="heading2">
+        <a class="heading" href="/"><i><span class="accent">Guava</span> Chess</i></a>
+        </div>
+        
+        <div class="container">
+        <div id="myBoard" class="chessBoard"></div>
+        
+        <div class="info">
+        <h2><u>Session info:</u></h2>
+        <script>
+            function copyID(){
+                let params = new URLSearchParams(document.location.search);
+                let name = params.get("code");
+                navigator.clipboard.writeText(name);
+                alert("Invite code copied! Share it with a friend so you can play together.")
+            };
+            function getCode(){
+            let params = new URLSearchParams(document.location.search);
+            let name = params.get("code");
+            document.write("<b>Invite code: (click to copy)</b> <br><span class='accent'><a onclick='copyID()' id='gameID'>",name,"</a></span>");
+        };
+        getCode();
+        </script>
+        <p><b>Game status:</b></p>
         <div id="status"></div>
-        <label>PGN:</label>
-        <div id="pgn"></div>
+        <p><b>PGN:</b></p>
+        <p id="pgn"></p>
+        </div></div>
 
         <script>
             let playerColor = '{{color}}';
