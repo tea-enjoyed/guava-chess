@@ -17,6 +17,15 @@
 - Uses the outdated chessboardjs instead of chessboard2 (Couldn't get it to work with chessboard2, had to stick with chessboardjs)
 - Not sure about the code's reliability - Not enough testing has been done.
 
+## How to build & run
+Node.js & npm are required.
+
+In the root folder, do `npm install` to install all the packages needed (socket.io, express, http, etc.)
+
+To launch the server from the root folder, do `cd server;node server.js`. (On Linux/Mac; might be different for Windows)
+
+If you're already in the server folder, just do `node server.js`.
+
 ## Screenshots
 ![Screenshot_20250601_161944](https://github.com/user-attachments/assets/ac98e175-0396-44d5-aade-e07da801f6e4)
 ![image](https://github.com/user-attachments/assets/0ea6b9d3-71ab-4453-a810-751afafc4309)
