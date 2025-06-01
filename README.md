@@ -15,6 +15,7 @@
 - Can't change from dark to light theme.
 - Promoted pawns auto-promote to queen. (Instead of letting the user choose)
 - Uses the outdated chessboardjs instead of chessboard2 (Couldn't get it to work with chessboard2, had to stick with chessboardjs)
+- Bad mobile & vertical screen support.
 - Not sure about the code's reliability - Not enough testing has been done.
 
 ## How to build & run
