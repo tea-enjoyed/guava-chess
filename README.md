@@ -5,7 +5,7 @@
  - Modern CSS styling.
  - Game ID generation uses UUIDv4. - Unlikely to collide.
  - Prevents spoofing & more than 2 players in the same game.
- - Robots.txt asks bots not to visit - to prevent schools from finding the website and blocking it.
+ - Robots.txt asks bots not to visit - to prevent schools from crawling the website and adding it to a blacklist.
 
 ## Flaws (for now)
 - You can make your own invite link by directly modifying the URL. I'm not sure how to feel about that...
